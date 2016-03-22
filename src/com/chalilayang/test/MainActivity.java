@@ -71,6 +71,12 @@ public class MainActivity extends Activity implements OnItemClickListener {
         map.put(LIST_KEY_ICON, R.drawable.googleplus);
         map.put(LIST_KEY_NAME, getString(R.string.sticky_list_view_extra));
         list.add(map);
+        
+        map = new HashMap<String, Object>(1);
+        // map.put("img", R.drawable.e002);
+        map.put(LIST_KEY_ICON, R.drawable.dribble);
+        map.put(LIST_KEY_NAME, getString(R.string.clip_path_demo));
+        list.add(map);
 
         return list;
     }
@@ -94,6 +100,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 break;
             case 4:
                 intent = new Intent(this, StickyListTestActivity.class);
+                break;
+            case 5:
+                intent = new Intent(this, ClipPathTestActivity.class);
                 break;
             default:
                 break;

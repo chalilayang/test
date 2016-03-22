@@ -9,16 +9,14 @@
     <string name="action_settings">Settings</string>
     <string name="sticky_list_view">StickyList</string>
     <string name="sticky_list_view_extra">StickyList2</string>
+    <string name="clip_path_demo">clipPathDemo</string>
     <string name="lable_tag_sample">标签demo</string>
-    
     <string name="dexposed">Hi, dexposed!</string>
     <string name="hook_log">Hook system log</string>
     <string name="hook_Choreographer">Hook Choreographer</string>
     <string name="log_content">The log content</string>
     <string name="run_patch_apk">Run patch apk</string>
-    
     <string name="tag_text">tag</string>
-    
     <string name="restore">Restore</string>
     <string name="update">Update</string>
     <string name="clear">Clear</string>
@@ -35,5 +33,7 @@
     <string name="fade_header">Fade header</string>
     <string name="draw_behind_header">Draw behind header</string>
     <string name="fast_scroll">Fast scroll</string>
+    <string name="title_activity_clip_path_test">ClipPathTestActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

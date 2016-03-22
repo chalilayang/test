@@ -584,6 +584,11 @@ containing a value of this type.
         public static final int about_text_padding_summary=0x7f080203;
         public static final int about_version_height=0x7f080200;
         /**  Default screen margins, per the Android Design guidelines. 
+
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
          */
         public static final int activity_horizontal_margin=0x7f080000;
         public static final int activity_vertical_margin=0x7f080001;
@@ -1758,23 +1763,24 @@ containing a value of this type.
         public static final int user_avator_size_when_user_is_junior=0x7f090001;
     }
     public static final class layout {
-        public static final int activity_dexposed=0x7f030000;
-        public static final int activity_explosion=0x7f030001;
-        public static final int activity_lable_tag=0x7f030002;
-        public static final int activity_main=0x7f030003;
-        public static final int activity_sticky_list=0x7f030004;
-        public static final int activity_sticky_list_extra=0x7f030005;
-        public static final int activity_waveloading=0x7f030006;
-        public static final int expandable_sample=0x7f030007;
-        public static final int fragment_main=0x7f030008;
-        public static final int header=0x7f030009;
-        public static final int list_footer_extra=0x7f03000a;
-        public static final int list_header=0x7f03000b;
-        public static final int list_header_extra=0x7f03000c;
-        public static final int list_item_layout=0x7f03000d;
-        public static final int list_row=0x7f03000e;
-        public static final int tagview=0x7f03000f;
-        public static final int test_list_item_layout=0x7f030010;
+        public static final int activity_clip_path_test=0x7f030000;
+        public static final int activity_dexposed=0x7f030001;
+        public static final int activity_explosion=0x7f030002;
+        public static final int activity_lable_tag=0x7f030003;
+        public static final int activity_main=0x7f030004;
+        public static final int activity_sticky_list=0x7f030005;
+        public static final int activity_sticky_list_extra=0x7f030006;
+        public static final int activity_waveloading=0x7f030007;
+        public static final int expandable_sample=0x7f030008;
+        public static final int fragment_main=0x7f030009;
+        public static final int header=0x7f03000a;
+        public static final int list_footer_extra=0x7f03000b;
+        public static final int list_header=0x7f03000c;
+        public static final int list_header_extra=0x7f03000d;
+        public static final int list_item_layout=0x7f03000e;
+        public static final int list_row=0x7f03000f;
+        public static final int tagview=0x7f030010;
+        public static final int test_list_item_layout=0x7f030011;
     }
     public static final class menu {
         public static final int menu_main=0x7f0c0000;
@@ -1782,34 +1788,37 @@ containing a value of this type.
     public static final class string {
         public static final int action_reset=0x7f0a0003;
         public static final int action_settings=0x7f0a0005;
-        public static final int actions=0x7f0a0016;
+        public static final int actions=0x7f0a0017;
         public static final int app_name=0x7f0a0000;
-        public static final int clear=0x7f0a0011;
-        public static final int clear_list=0x7f0a001a;
-        public static final int dexposed=0x7f0a0009;
-        public static final int draw_behind_header=0x7f0a001d;
-        public static final int drawer_close=0x7f0a0014;
-        public static final int drawer_open=0x7f0a0013;
-        public static final int empty=0x7f0a0012;
+        public static final int clear=0x7f0a0012;
+        public static final int clear_list=0x7f0a001b;
+        public static final int clip_path_demo=0x7f0a0008;
+        public static final int dexposed=0x7f0a000a;
+        public static final int draw_behind_header=0x7f0a001e;
+        public static final int drawer_close=0x7f0a0015;
+        public static final int drawer_open=0x7f0a0014;
+        public static final int empty=0x7f0a0013;
         public static final int explosion=0x7f0a0001;
-        public static final int fade_header=0x7f0a001c;
-        public static final int fast_scroll=0x7f0a001e;
-        public static final int hook_Choreographer=0x7f0a000b;
-        public static final int hook_log=0x7f0a000a;
-        public static final int lable_tag_sample=0x7f0a0008;
-        public static final int log_content=0x7f0a000c;
-        public static final int open_expandable_list=0x7f0a0018;
-        public static final int options=0x7f0a0015;
-        public static final int restore=0x7f0a000f;
-        public static final int restore_list=0x7f0a0017;
-        public static final int run_patch_apk=0x7f0a000d;
-        public static final int sticky_header=0x7f0a001b;
+        public static final int fade_header=0x7f0a001d;
+        public static final int fast_scroll=0x7f0a001f;
+        public static final int hello_world=0x7f0a0021;
+        public static final int hook_Choreographer=0x7f0a000c;
+        public static final int hook_log=0x7f0a000b;
+        public static final int lable_tag_sample=0x7f0a0009;
+        public static final int log_content=0x7f0a000d;
+        public static final int open_expandable_list=0x7f0a0019;
+        public static final int options=0x7f0a0016;
+        public static final int restore=0x7f0a0010;
+        public static final int restore_list=0x7f0a0018;
+        public static final int run_patch_apk=0x7f0a000e;
+        public static final int sticky_header=0x7f0a001c;
         public static final int sticky_list_view=0x7f0a0006;
         public static final int sticky_list_view_extra=0x7f0a0007;
-        public static final int tag_text=0x7f0a000e;
+        public static final int tag_text=0x7f0a000f;
+        public static final int title_activity_clip_path_test=0x7f0a0020;
         public static final int title_activity_main=0x7f0a0004;
-        public static final int update=0x7f0a0010;
-        public static final int update_list=0x7f0a0019;
+        public static final int update=0x7f0a0011;
+        public static final int update_list=0x7f0a001a;
         public static final int waveloading=0x7f0a0002;
     }
     public static final class style {
