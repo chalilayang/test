@@ -12,6 +12,7 @@ import android.view.View;
 
 public class ClipPathTestActivity extends Activity {
 
+    public static final int OFFSET_VALUE = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,19 +54,19 @@ public class ClipPathTestActivity extends Activity {
         protected void onDraw(Canvas canvas) {  
             canvas.drawColor(Color.GRAY);              
             canvas.save();  
-            canvas.translate(10, 10);  
+            canvas.translate(OFFSET_VALUE, OFFSET_VALUE);  
             drawScene(canvas);  
             canvas.restore();  
               
             canvas.save();  
-            canvas.translate(160, 10);  
-            canvas.clipRect(10, 10, 90, 90);  
-            canvas.clipRect(30, 30, 70, 70, Region.Op.DIFFERENCE);  
+            canvas.translate(160, OFFSET_VALUE);  
+            canvas.clipRect(10, 10, 90, 90); 
+            canvas.clipRect(30, 30, 70, 70, Region.Op.XOR);  
             drawScene(canvas);  
             canvas.restore();  
               
             canvas.save();  
-            canvas.translate(10, 160);  
+            canvas.translate(OFFSET_VALUE, 160);  
             mPath.reset();  
             canvas.clipPath(mPath); // makes the clip empty  
             mPath.addCircle(50, 50, 50, Path.Direction.CCW);  
@@ -81,7 +82,7 @@ public class ClipPathTestActivity extends Activity {
             canvas.restore();  
               
             canvas.save();  
-            canvas.translate(10, 310);  
+            canvas.translate(OFFSET_VALUE, 310);  
             canvas.clipRect(0, 0, 60, 60);  
             canvas.clipRect(40, 40, 100, 100, Region.Op.XOR);  
             drawScene(canvas);  
