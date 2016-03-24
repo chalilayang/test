@@ -46,6 +46,10 @@
             android:name=".ClipPathTestActivity"
             android:label="@string/title_activity_clip_path_test" >
         </activity>
+        <activity
+            android:name="com.mobeta.android.demodslv.ArbItemSizeDSLV"
+            android:label="@string/title_activity_clip_path_test" >
+        </activity>
     </application>
 
 </manifest>

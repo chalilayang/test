@@ -14,6 +14,12 @@
     <color name="personal_btn_text_color">#d9d9d9</color>
     <color name="recommend_indicator_not_focus_color">#999999</color>
     <color name="transparent_black">#bb000000</color>
+    <color name="blue">#33b5e5</color>
+    <color name="darkblue">#0099cc</color>
+    <color name="red">#ff4444</color>
+    <color name="grayStart">#adadad</color>
+    <color name="grayEnd">#ffffff</color>
+    <color name="bg_handle_pressed">#a0a0a0</color>
     <!-- has logined -->
 
     <!-- update_about -->
@@ -56,11 +62,6 @@
 
 
     <color name="search_result_video_short_bottom_bg">#BB000000</color>
-
-
-
-    <color name="blue">#ff33b5e5</color>
-
 
     <!-- User Center -->
     <color name="user_record_delete_backgroud_color">#b3000000</color>

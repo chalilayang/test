@@ -14,6 +14,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.mobeta.android.demodslv.ArbItemSizeDSLV;
+
 public class MainActivity extends Activity implements OnItemClickListener {
 
     public static final String LIST_KEY_ICON = "icon";
@@ -102,7 +104,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 intent = new Intent(this, StickyListTestActivity.class);
                 break;
             case 5:
-                intent = new Intent(this, ClipPathTestActivity.class);
+                intent = new Intent(this, ArbItemSizeDSLV.class);
                 break;
             default:
                 break;
