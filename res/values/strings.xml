@@ -35,6 +35,7 @@
     <string name="fast_scroll">Fast scroll</string>
     <string name="title_activity_clip_path_test">ClipPathTestActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_dynamic_gridview">DynamicGridView</string>
 
     <string-array name="activity_titles">
         <item>Basic usage playground</item>

@@ -14,6 +14,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import org.askerov.dynamicgrid.example.GridActivity;
+
 import com.mobeta.android.demodslv.ArbItemSizeDSLV;
 
 public class MainActivity extends Activity implements OnItemClickListener {
@@ -79,6 +81,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
         map.put(LIST_KEY_ICON, R.drawable.dribble);
         map.put(LIST_KEY_NAME, getString(R.string.clip_path_demo));
         list.add(map);
+        
+        map = new HashMap<String, Object>(1);
+        // map.put("img", R.drawable.e002);
+        map.put(LIST_KEY_ICON, R.drawable.deviantart);
+        map.put(LIST_KEY_NAME, getString(R.string.title_activity_dynamic_gridview));
+        list.add(map);
+
 
         return list;
     }
@@ -105,6 +114,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 break;
             case 5:
                 intent = new Intent(this, ArbItemSizeDSLV.class);
+                break;
+            case 6:
+                intent = new Intent(this, GridActivity.class);
                 break;
             default:
                 break;
