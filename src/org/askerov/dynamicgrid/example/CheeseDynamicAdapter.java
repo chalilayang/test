@@ -53,7 +53,7 @@ public class CheeseDynamicAdapter extends BaseDynamicGridAdapter {
 
         void build(String title) {
             titleText.setText(title);
-            image.setImageResource(R.drawable.ic_launcher);
+            image.setImageResource(R.drawable.behance);
         }
     }
 }
