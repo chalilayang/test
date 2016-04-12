@@ -67,7 +67,7 @@ public class DynamicGridView extends GridView {
     private List<ObjectAnimator> mWobbleAnimators = new LinkedList<ObjectAnimator>();
     private boolean mHoverAnimation;
     private boolean mReorderAnimation;
-    private boolean mWobbleInEditMode = true;
+    private boolean mWobbleInEditMode = false;
     private boolean mIsEditModeEnabled = true;
 
     private OnScrollListener mUserScrollListener;
@@ -372,6 +372,12 @@ public class DynamicGridView extends GridView {
         Bitmap bitmap = Bitmap.createBitmap(v.getWidth(), v.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         v.draw(canvas);
+        
+        
+//        v.setDrawingCacheEnabled(true);
+//        Bitmap bitmap = Bitmap.createBitmap(v.getDrawingCache());
+//        v.buildDrawingCache(false);
+//        v.destroyDrawingCache();
         return bitmap;
     }
 

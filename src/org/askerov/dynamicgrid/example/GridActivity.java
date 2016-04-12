@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -12,9 +13,12 @@ import android.view.animation.LayoutAnimationController;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.Toast;
+
+import org.askerov.dynamicgrid.BaseDynamicGridAdapter;
 import org.askerov.dynamicgrid.DynamicGridView;
 
 import com.chalilayang.test.R;
+import com.chalilayang.test.explosion.utils.ExplosionField;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +30,9 @@ public class GridActivity extends Activity {
 
     private DynamicGridView gridView;
     private List<CheeseItem> mList;
+    private ExplosionField mExplosionField;
+    
+    private BaseDynamicGridAdapter mAdapter;
 
     static class CheeseItem {
         private String name;
@@ -46,10 +53,12 @@ public class GridActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid);
         initData();
+        mAdapter = new CheeseDynamicAdapter(this, mList,
+                getResources().getInteger(R.integer.column_count));
         gridView = (DynamicGridView) findViewById(R.id.dynamic_grid);
         gridView.setLayoutAnimation(getAnimationController());
-        gridView.setAdapter(new CheeseDynamicAdapter(this, mList,
-                getResources().getInteger(R.integer.column_count)));
+        gridView.setAdapter(mAdapter);
+        mExplosionField = ExplosionField.attach2Window(this);
 //        add callback to stop edit mode if needed
         gridView.setOnDropListener(new DynamicGridView.OnDropListener()
         {
@@ -81,8 +90,10 @@ public class GridActivity extends Activity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(GridActivity.this, parent.getAdapter().getItem(position).toString(),
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(GridActivity.this, parent.getAdapter().getItem(position).toString(),
+//                        Toast.LENGTH_SHORT).show();
+                mAdapter.remove(mAdapter.getItem(position));
+                mExplosionField.explode(view, false);
             }
         });
     }
@@ -170,7 +181,7 @@ public class GridActivity extends Activity {
         animation.setDuration(duration);  
         set.addAnimation(animation);  
   
-        GridLayoutAnimationController controller = new GridLayoutAnimationController(set, 0.1f, 0.9f);
+        GridLayoutAnimationController controller = new GridLayoutAnimationController(set, 0.2f, 0.8f);
         controller.setDirectionPriority(GridLayoutAnimationController.PRIORITY_ROW);
         controller.setOrder(LayoutAnimationController.ORDER_NORMAL);  
         return controller;  

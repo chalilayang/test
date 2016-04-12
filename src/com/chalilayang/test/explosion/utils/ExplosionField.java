@@ -86,6 +86,10 @@ public class ExplosionField extends View {
     }
 
     public void explode(final View view) {
+        explode(view, false);
+    }
+    
+    public void explode(final View view, boolean invisible) {
         Rect r = new Rect();
         view.getGlobalVisibleRect(r);
         int[] location = new int[2];
@@ -106,7 +110,9 @@ public class ExplosionField extends View {
             }
         });
         animator.start();
-        view.animate().setDuration(150).setStartDelay(startDelay).scaleX(0f).scaleY(0f).alpha(0f).start();
+        if (!invisible) {
+            view.animate().setDuration(150).setStartDelay(startDelay).scaleX(0f).scaleY(0f).alpha(0f).start();
+        }
         explode(Utils.createBitmapFromView(view), r, startDelay, ExplosionAnimator.DEFAULT_DURATION);
     }
 
