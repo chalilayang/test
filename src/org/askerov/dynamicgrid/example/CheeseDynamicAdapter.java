@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.askerov.dynamicgrid.BaseDynamicGridAdapter;
+import org.askerov.dynamicgrid.example.GridActivity.CheeseItem;
 
 import com.chalilayang.test.R;
 
@@ -38,7 +39,7 @@ public class CheeseDynamicAdapter extends BaseDynamicGridAdapter {
         } else {
             holder = (CheeseViewHolder) convertView.getTag();
         }
-        holder.build(getItem(position).toString());
+        holder.build((CheeseItem)getItem(position));
         return convertView;
     }
 
@@ -51,9 +52,9 @@ public class CheeseDynamicAdapter extends BaseDynamicGridAdapter {
             image = (ImageView) view.findViewById(R.id.item_img);
         }
 
-        void build(String title) {
-            titleText.setText(title);
-            image.setImageResource(R.drawable.behance);
+        void build(CheeseItem object) {
+            titleText.setText(object.getName());
+            image.setImageResource(object.getResID());
         }
     }
 }

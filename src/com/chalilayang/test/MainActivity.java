@@ -9,6 +9,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.LayoutAnimationController;
+import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -39,6 +44,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
             mListAdapter = new SimpleAdapter(getApplicationContext(), getData(), R.layout.list_item_layout,
                     new String[] {LIST_KEY_ICON, LIST_KEY_NAME},
                     new int[] {R.id.myDataImage, R.id.myDataString});
+            mListView.setLayoutAnimation(getAnimationController());
             mListView.setAdapter(mListAdapter);
             mListView.setOnItemClickListener(this);
         }
@@ -78,7 +84,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         
         map = new HashMap<String, Object>(1);
         // map.put("img", R.drawable.e002);
-        map.put(LIST_KEY_ICON, R.drawable.dribble);
+        map.put(LIST_KEY_ICON, R.drawable.instagram);
         map.put(LIST_KEY_NAME, getString(R.string.clip_path_demo));
         list.add(map);
         
@@ -124,5 +130,29 @@ public class MainActivity extends Activity implements OnItemClickListener {
         if (intent != null) {
             this.startActivity(intent);
         }
+    }
+    
+    /** 
+     * Layout动画 
+     *  
+     * @return 
+     */  
+    protected LayoutAnimationController getAnimationController() {  
+        int duration=100;  
+        AnimationSet set = new AnimationSet(true);  
+  
+        Animation animation = new AlphaAnimation(0.0f, 1.0f);  
+        animation.setDuration(duration);  
+        set.addAnimation(animation);  
+  
+        animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,  
+                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,  
+                -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);  
+        animation.setDuration(duration);  
+        set.addAnimation(animation);  
+  
+        LayoutAnimationController controller = new LayoutAnimationController(set, 0.5f);  
+        controller.setOrder(LayoutAnimationController.ORDER_NORMAL);  
+        return controller;  
     }
 }

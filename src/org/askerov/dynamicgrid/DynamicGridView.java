@@ -247,13 +247,14 @@ public class DynamicGridView extends GridView {
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void startWobbleAnimation() {
-        for (int i = 0; i < getChildCount(); i++) {
+        for (int i = 0, count = getChildCount(); i < count; i++) {
             View v = getChildAt(i);
             if (v != null && Boolean.TRUE != v.getTag(R.id.dgv_wobble_tag)) {
-                if (i % 2 == 0)
+                if (i % 2 == 0) {
                     animateWobble(v);
-                else
+                } else {
                     animateWobbleInverse(v);
+                }
                 v.setTag(R.id.dgv_wobble_tag, true);
             }
         }
