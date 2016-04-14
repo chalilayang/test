@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -12,7 +11,6 @@ import android.view.animation.GridLayoutAnimationController;
 import android.view.animation.LayoutAnimationController;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
 import org.askerov.dynamicgrid.BaseDynamicGridAdapter;
 import org.askerov.dynamicgrid.DynamicGridView;
@@ -21,7 +19,6 @@ import com.chalilayang.test.R;
 import com.chalilayang.test.explosion.utils.ExplosionField;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class GridActivity extends Activity {
@@ -65,7 +62,7 @@ public class GridActivity extends Activity {
             @Override
             public void onActionDrop()
             {
-                gridView.stopEditMode();
+//                gridView.stopEditMode();
             }
         });
         gridView.setOnDragListener(new DynamicGridView.OnDragListener() {
@@ -168,7 +165,7 @@ public class GridActivity extends Activity {
      * @return 
      */  
     protected LayoutAnimationController getAnimationController() {  
-        int duration = 300;
+        int duration = 500;
         AnimationSet set = new AnimationSet(true);  
   
         Animation animation = new AlphaAnimation(0.0f, 1.0f);  
@@ -177,11 +174,11 @@ public class GridActivity extends Activity {
   
         animation = new TranslateAnimation(Animation.RELATIVE_TO_PARENT, 1.0f,  
                 Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT,  
-                1.0f, Animation.RELATIVE_TO_PARENT, 0.0f);  
+                0.0f, Animation.RELATIVE_TO_PARENT, 0.0f);  
         animation.setDuration(duration);  
         set.addAnimation(animation);  
   
-        GridLayoutAnimationController controller = new GridLayoutAnimationController(set, 0.2f, 0.8f);
+        GridLayoutAnimationController controller = new GridLayoutAnimationController(set, 0.05f, 0.9f);
         controller.setDirectionPriority(GridLayoutAnimationController.PRIORITY_ROW);
         controller.setOrder(LayoutAnimationController.ORDER_NORMAL);  
         return controller;  

@@ -67,7 +67,7 @@ public class DynamicGridView extends GridView {
     private List<ObjectAnimator> mWobbleAnimators = new LinkedList<ObjectAnimator>();
     private boolean mHoverAnimation;
     private boolean mReorderAnimation;
-    private boolean mWobbleInEditMode = false;
+    private boolean mWobbleInEditMode = true;
     private boolean mIsEditModeEnabled = true;
 
     private OnScrollListener mUserScrollListener;
@@ -407,7 +407,7 @@ public class DynamicGridView extends GridView {
     public View getViewForId(long itemId) {
         int firstVisiblePosition = getFirstVisiblePosition();
         ListAdapter adapter = getAdapter();
-        for (int i = 0; i < getChildCount(); i++) {
+        for (int i = 0, count = getChildCount(); i < count; i++) {
             View v = getChildAt(i);
             int position = firstVisiblePosition + i;
             long id = adapter.getItemId(position);
@@ -700,7 +700,7 @@ public class DynamicGridView extends GridView {
             View view = getViewForId(id);
             if (view != null) {
                 Point targetColumnRowPair = getColumnAndRowForView(view);
-                if ((aboveRight(targetColumnRowPair, mobileColumnRowPair)
+                if (aboveRight(targetColumnRowPair, mobileColumnRowPair)
                         && deltaYTotal < view.getBottom() && deltaXTotal > view.getLeft()
                         || aboveLeft(targetColumnRowPair, mobileColumnRowPair)
                         && deltaYTotal < view.getBottom() && deltaXTotal < view.getRight()
@@ -715,7 +715,7 @@ public class DynamicGridView extends GridView {
                         || right(targetColumnRowPair, mobileColumnRowPair)
                         && deltaXTotal > view.getLeft() + mOverlapIfSwitchStraightLine
                         || left(targetColumnRowPair, mobileColumnRowPair)
-                        && deltaXTotal < view.getRight() - mOverlapIfSwitchStraightLine)) {
+                        && deltaXTotal < view.getRight() - mOverlapIfSwitchStraightLine) {
                     float xDiff = Math.abs(DynamicGridUtils.getViewX(view) - DynamicGridUtils.getViewX(mMobileView));
                     float yDiff = Math.abs(DynamicGridUtils.getViewY(view) - DynamicGridUtils.getViewY(mMobileView));
                     if (xDiff >= vX && yDiff >= vY) {

@@ -100,7 +100,18 @@ public abstract class BaseDynamicGridAdapter extends AbstractDynamicGridAdapter 
     }
 
     @Override
+    public void removeItem(int originalPosition) {
+        // TODO Auto-generated method stub
+        remove(getItem(originalPosition));
+    }
+
+    @Override
     public boolean canReorder(int position) {
+        return true;
+    }
+    
+    @Override
+    public boolean canRemove(int position) {
         return true;
     }
 

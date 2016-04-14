@@ -9,10 +9,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.AnticipateOvershootInterpolator;
 import android.view.animation.LayoutAnimationController;
+import android.view.animation.OvershootInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -138,20 +141,20 @@ public class MainActivity extends Activity implements OnItemClickListener {
      * @return 
      */  
     protected LayoutAnimationController getAnimationController() {  
-        int duration=100;  
+        int duration=400;  
         AnimationSet set = new AnimationSet(true);  
   
         Animation animation = new AlphaAnimation(0.0f, 1.0f);  
         animation.setDuration(duration);  
         set.addAnimation(animation);  
   
-        animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,  
-                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,  
-                -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);  
+        animation = new TranslateAnimation(Animation.RELATIVE_TO_PARENT, 1.0f,  
+                Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_SELF,  
+                0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
         animation.setDuration(duration);  
         set.addAnimation(animation);  
   
-        LayoutAnimationController controller = new LayoutAnimationController(set, 0.5f);  
+        LayoutAnimationController controller = new LayoutAnimationController(set, 0.1f);  
         controller.setOrder(LayoutAnimationController.ORDER_NORMAL);  
         return controller;  
     }

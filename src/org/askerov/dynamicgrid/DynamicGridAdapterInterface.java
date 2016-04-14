@@ -18,6 +18,8 @@ public interface DynamicGridAdapterInterface {
      * Determines how to reorder items dragged from <code>originalPosition</code> to <code>newPosition</code>
      */
     void reorderItems(int originalPosition, int newPosition);
+    
+    void removeItem(int originalPosition);
 
     /**
      * @return return columns number for GridView. Need for compatibility
@@ -29,5 +31,10 @@ public interface DynamicGridAdapterInterface {
      * Determines whether the item in the specified <code>position</code> can be reordered.
      */
     boolean canReorder(int position);
+    
+    /**
+     * Determines whether the item in the specified <code>position</code> can be deleted.
+     */
+    boolean canRemove(int position);
 
 }
