@@ -38,14 +38,13 @@ public class Launcher extends ListActivity {
 
         try {
           PackageInfo pi = getPackageManager().getPackageInfo(
-            "com.mobeta.android.demodslv", PackageManager.GET_ACTIVITIES);
+            getPackageName(), PackageManager.GET_ACTIVITIES);
 
-          mActivities = new ArrayList<ActivityInfo>(Arrays.asList(pi.activities));
+          mActivities = new ArrayList<ActivityInfo>();
           String ourName = getClass().getName();
-          for (int i = 0; i < mActivities.size(); ++i) {
-              if (ourName.equals(mActivities.get(i).name)) {
-                  mActivities.remove(i);
-                  break;
+          for (int i = 0, count = pi.activities.length; i < count; ++i) {
+              if (pi.activities[i].name.contains("com.mobeta.android.demodslv") && !ourName.equals(pi.activities[i].name)) {
+                  mActivities.add(pi.activities[i]);
               }
           }
         } catch (PackageManager.NameNotFoundException e) {

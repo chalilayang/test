@@ -1,6 +1,7 @@
 package com.mobeta.android.dslv;
 
 import android.graphics.Point;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
@@ -219,7 +220,7 @@ public class DragSortController extends SimpleFloatViewManager implements View.O
      * @return True if drag started, false otherwise.
      */
     public boolean startDrag(int position, int deltaX, int deltaY) {
-
+        Log.i("yangyong", "startDrag  deltaX " + deltaX + "  deltaY " + deltaY);
         int dragFlags = 0;
         if (mSortEnabled && !mIsRemoving) {
             dragFlags |= DragSortListView.DRAG_POS_Y | DragSortListView.DRAG_NEG_Y;
@@ -384,6 +385,7 @@ public class DragSortController extends SimpleFloatViewManager implements View.O
         final int y2 = (int) e2.getY();
         final int deltaX = x2 - mItemX;
         final int deltaY = y2 - mItemY;
+        Log.i("yangyong", "x1 " + x1 + "  y1 " + y1 + " x2 " + x2 + "  y2 " + y2 + " disX " + distanceX+ " disY " + distanceY);
 
         if (mCanDrag && !mDragging && (mHitPos != MISS || mFlingHitPos != MISS)) {
             if (mHitPos != MISS) {

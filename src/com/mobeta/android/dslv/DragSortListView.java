@@ -542,7 +542,7 @@ public class DragSortListView extends ListView {
         if (removeAnimDuration > 0) {
             mRemoveAnimator = new RemoveAnimator(smoothness, removeAnimDuration);
         }
-        // mLiftAnimator = new LiftAnimator(smoothness, 100);
+        mLiftAnimator = new LiftAnimator(smoothness, 100);
         if (dropAnimDuration > 0) {
             mDropAnimator = new DropAnimator(smoothness, dropAnimDuration);
         }
@@ -2153,6 +2153,7 @@ public class DragSortListView extends ListView {
         // we are in a drag
         int action = ev.getAction() & MotionEvent.ACTION_MASK;
 
+//        Log.i("yangyong", "first " + mFirstExpPos + "  second " + mSecondExpPos+ "  src " + mSrcPos);
         switch (ev.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_CANCEL:
                 if (mDragState == DRAGGING) {
@@ -2242,6 +2243,7 @@ public class DragSortListView extends ListView {
      * a drag in progress.
      */
     public boolean startDrag(int position, View floatView, int dragFlags, int deltaX, int deltaY) {
+        Log.i("yangyong", "startDrag  position "+position+ " deltaX " + deltaX + "  deltaY " + deltaY);
         if (mDragState != IDLE || !mInTouchEvent || mFloatView != null || floatView == null
                 || !mDragEnabled) {
             return false;

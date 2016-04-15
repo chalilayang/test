@@ -51,6 +51,38 @@
             android:label="@string/title_activity_clip_path_test" >
         </activity>
         <activity
+            android:name="com.mobeta.android.demodslv.BGHandle"
+            android:label="@string/title_activity_clip_path_test" >
+        </activity>
+        <activity
+            android:name="com.mobeta.android.demodslv.CursorDSLV"
+            android:label="@string/title_activity_clip_path_test" >
+        </activity>
+        <activity
+            android:name="com.mobeta.android.demodslv.MultipleChoiceListView"
+            android:label="@string/title_activity_clip_path_test" >
+        </activity>
+        <activity
+            android:name="com.mobeta.android.demodslv.Sections"
+            android:label="@string/title_activity_clip_path_test" >
+        </activity>
+        <activity
+            android:name="com.mobeta.android.demodslv.SingleChoiceListView"
+            android:label="@string/title_activity_clip_path_test" >
+        </activity>
+        <activity
+            android:name="com.mobeta.android.demodslv.TestBedDSLV"
+            android:label="@string/title_activity_clip_path_test" >
+        </activity>
+        <activity
+            android:name="com.mobeta.android.demodslv.WarpDSLV"
+            android:label="@string/title_activity_clip_path_test" >
+        </activity>
+        <activity
+            android:name="com.mobeta.android.demodslv.Launcher"
+            android:label="@string/title_activity_clip_path_test" >
+        </activity>
+        <activity
             android:name="org.askerov.dynamicgrid.example.GridActivity"
             android:label="@string/title_activity_clip_path_test" >
         </activity>
