@@ -8,6 +8,8 @@ import java.util.Map;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
@@ -24,7 +26,6 @@ import android.widget.SimpleAdapter;
 
 import org.askerov.dynamicgrid.example.GridActivity;
 
-import com.mobeta.android.demodslv.ArbItemSizeDSLV;
 import com.mobeta.android.demodslv.Launcher;
 
 public class MainActivity extends Activity implements OnItemClickListener {
@@ -34,12 +35,17 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
     public ListView mListView;
     private SimpleAdapter mListAdapter;
-
+    public DisplayMetrics mDisplayMetrics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+    }
+    
+    private void initMetrics() {
+        mDisplayMetrics = getApplicationContext().getResources().getDisplayMetrics();
+        Log.e("displayMetrics", mDisplayMetrics.toString());
     }
 
     private void init() {

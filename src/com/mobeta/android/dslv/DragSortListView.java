@@ -846,7 +846,7 @@ public class DragSortListView extends ListView {
     }
 
     private void printPosData() {
-        Log.d("mobeta", "mSrcPos=" + mSrcPos + " mFirstExpPos=" + mFirstExpPos + " mSecondExpPos="
+        Log.i("yangyong", "mSrcPos=" + mSrcPos + " mFirstExpPos=" + mFirstExpPos + " mSecondExpPos="
                 + mSecondExpPos);
     }
 
@@ -933,7 +933,7 @@ public class DragSortListView extends ListView {
         int maxBlankHeight = mFloatViewHeight - mItemHeightCollapsed;
         int childHeight = getChildHeight(position);
         int itemHeight = getItemHeight(position);
-
+        printPosData();
         // first calculate top of item given that floating View is
         // centered over src position
         int otop = top;

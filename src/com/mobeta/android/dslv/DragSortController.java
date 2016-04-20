@@ -385,7 +385,7 @@ public class DragSortController extends SimpleFloatViewManager implements View.O
         final int y2 = (int) e2.getY();
         final int deltaX = x2 - mItemX;
         final int deltaY = y2 - mItemY;
-        Log.i("yangyong", "x1 " + x1 + "  y1 " + y1 + " x2 " + x2 + "  y2 " + y2 + " disX " + distanceX+ " disY " + distanceY);
+//        Log.i("yangyong", "x1 " + x1 + "  y1 " + y1 + " x2 " + x2 + "  y2 " + y2 + " disX " + distanceX+ " disY " + distanceY);
 
         if (mCanDrag && !mDragging && (mHitPos != MISS || mFlingHitPos != MISS)) {
             if (mHitPos != MISS) {

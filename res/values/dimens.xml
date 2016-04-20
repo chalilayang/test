@@ -5,4 +5,6 @@
     <dimen name="item_height">67dp</dimen>
     <dimen name="section_div_height">20dp</dimen>
     <dimen name="dgv_overlap_if_switch_straight_line">16dp</dimen>
+    
+    <dimen name="mm_up_arrow_margin">-16dp</dimen>
 </resources>

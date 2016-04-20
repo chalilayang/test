@@ -3,7 +3,7 @@
     package="com.chalilayang.test" >
 
     <uses-sdk
-        android:minSdkVersion="13"
+        android:minSdkVersion="14"
         android:targetSdkVersion="19" />
 
     <application
@@ -48,6 +48,7 @@
         </activity>
         <activity
             android:name="com.mobeta.android.demodslv.ArbItemSizeDSLV"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" 
             android:label="@string/title_activity_clip_path_test" >
         </activity>
         <activity
@@ -80,11 +81,13 @@
         </activity>
         <activity
             android:name="com.mobeta.android.demodslv.Launcher"
-            android:label="@string/title_activity_clip_path_test" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" 
+            android:label="@string/dslv_demo" >
         </activity>
         <activity
             android:name="org.askerov.dynamicgrid.example.GridActivity"
-            android:label="@string/title_activity_clip_path_test" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" 
+            android:label="@string/title_activity_dynamic_gridview" >
         </activity>
     </application>
 
