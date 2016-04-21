@@ -753,7 +753,6 @@ public class DragSortListView extends ListView {
 
         final Drawable divider = getDivider();
         final int dividerHeight = getDividerHeight();
-        // Log.d("mobeta", "div="+divider+" divH="+dividerHeight);
 
         if (divider != null && dividerHeight != 0) {
             final ViewGroup expItem = (ViewGroup) getChildAt(expPosition
@@ -787,8 +786,6 @@ public class DragSortListView extends ListView {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-
         if (mDragState != IDLE) {
             // draw the divider over the expanded item
             if (mFirstExpPos != mSrcPos) {
@@ -798,7 +795,7 @@ public class DragSortListView extends ListView {
                 drawDivider(mSecondExpPos, canvas);
             }
         }
-
+        super.dispatchDraw(canvas);
         if (mFloatView != null) {
             // draw the float view over everything
             final int w = mFloatView.getWidth();
@@ -807,8 +804,9 @@ public class DragSortListView extends ListView {
             int x = mFloatLoc.x;
 
             int width = getWidth();
-            if (x < 0)
+            if (x < 0) {
                 x = -x;
+            }
             float alphaMod;
             if (x < width) {
                 alphaMod = ((float) (width - x)) / ((float) width);
@@ -829,7 +827,7 @@ public class DragSortListView extends ListView {
             mFloatView.draw(canvas);
             canvas.restore();
             canvas.restore();
-        }
+        }        
     }
 
     private int getItemHeight(int position) {

@@ -137,23 +137,27 @@ public class DynamicGridView extends GridView {
         if (!mIsEditModeEnabled)
             return;
         requestDisallowInterceptTouchEvent(true);
-        if (isPostHoneycomb() && mWobbleInEditMode)
+        if (isPostHoneycomb() && mWobbleInEditMode) {
             startWobbleAnimation();
+        }
         if (position != -1) {
             startDragAtPosition(position);
         }
         mIsEditMode = true;
-        if (mEditModeChangeListener != null)
+        if (mEditModeChangeListener != null) {
             mEditModeChangeListener.onEditModeChanged(true);
+        }
     }
 
     public void stopEditMode() {
         mIsEditMode = false;
         requestDisallowInterceptTouchEvent(false);
-        if (isPostHoneycomb() && mWobbleInEditMode)
+        if (isPostHoneycomb() && mWobbleInEditMode) {
             stopWobble(true);
-        if (mEditModeChangeListener != null)
+        }
+        if (mEditModeChangeListener != null) {
             mEditModeChangeListener.onEditModeChanged(false);
+        }
     }
 
     public boolean isEditModeEnabled() {
@@ -513,13 +517,16 @@ public class DynamicGridView extends GridView {
         View selectedView = getChildAt(itemNum);
         if (selectedView != null) {
             mMobileItemId = getAdapter().getItemId(position);
-            if (mSelectedItemBitmapCreationListener != null)
+            if (mSelectedItemBitmapCreationListener != null) {
                 mSelectedItemBitmapCreationListener.onPreSelectedItemBitmapCreation(selectedView, position, mMobileItemId);
+            }
             mHoverCell = getAndAddHoverView(selectedView);
-            if (mSelectedItemBitmapCreationListener != null)
+            if (mSelectedItemBitmapCreationListener != null) {
                 mSelectedItemBitmapCreationListener.onPostSelectedItemBitmapCreation(selectedView, position, mMobileItemId);
-            if (isPostHoneycomb())
+            }
+            if (isPostHoneycomb()) {
                 selectedView.setVisibility(View.INVISIBLE);
+            }
             mCellIsMobile = true;
             updateNeighborViewsForId(mMobileItemId);
             if (mDragListener != null) {
