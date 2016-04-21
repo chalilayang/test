@@ -1,5 +1,7 @@
 package org.askerov.dynamicgrid.example;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -89,8 +91,16 @@ public class GridActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                Toast.makeText(GridActivity.this, parent.getAdapter().getItem(position).toString(),
 //                        Toast.LENGTH_SHORT).show();
-                mAdapter.remove(mAdapter.getItem(position));
-                mExplosionField.explode(view, false);
+                final int mPosition = position;
+                mExplosionField.explode(view, true);                
+                gridView.postDelayed(new Runnable() {
+                    
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        gridView.removeElement(mPosition);
+                    }
+                }, 300);
             }
         });
     }

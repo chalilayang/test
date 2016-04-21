@@ -71,12 +71,61 @@ public class ExplosionField extends View {
         mExpandInset[1] = dy;
     }
 
-    public void explode(Bitmap bitmap, Rect bound, long startDelay, long duration) {
+    public void explode(Bitmap bitmap, Rect bound, long startDelay, long duration, final AnimatorListenerAdapter mAnimatorListenerAdapter) {
         final ExplosionAnimator explosion = new ExplosionAnimator(this, bitmap, bound);
         explosion.addListener(new AnimatorListenerAdapter() {
+            
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                // TODO Auto-generated method stub
+                super.onAnimationCancel(animation);
+                if (mAnimatorListenerAdapter != null) {
+                    mAnimatorListenerAdapter.onAnimationCancel(animation);
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                // TODO Auto-generated method stub
+                super.onAnimationRepeat(animation);
+                if (mAnimatorListenerAdapter != null) {
+                    mAnimatorListenerAdapter.onAnimationRepeat(animation);
+                }
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+                // TODO Auto-generated method stub
+                super.onAnimationStart(animation);
+                if (mAnimatorListenerAdapter != null) {
+                    mAnimatorListenerAdapter.onAnimationStart(animation);
+                }
+            }
+
+            @Override
+            public void onAnimationPause(Animator animation) {
+                // TODO Auto-generated method stub
+                super.onAnimationPause(animation);
+                if (mAnimatorListenerAdapter != null) {
+                    mAnimatorListenerAdapter.onAnimationPause(animation);
+                }
+            }
+
+            @Override
+            public void onAnimationResume(Animator animation) {
+                // TODO Auto-generated method stub
+                super.onAnimationResume(animation);
+                if (mAnimatorListenerAdapter != null) {
+                    mAnimatorListenerAdapter.onAnimationResume(animation);
+                }
+            }
+
             @Override
             public void onAnimationEnd(Animator animation) {
                 mExplosions.remove(animation);
+                if (mAnimatorListenerAdapter != null) {
+                    mAnimatorListenerAdapter.onAnimationEnd(animation);
+                }
             }
         });
         explosion.setStartDelay(startDelay);
@@ -84,12 +133,18 @@ public class ExplosionField extends View {
         mExplosions.add(explosion);
         explosion.start();
     }
+    
+    public void explode(Bitmap bitmap, Rect bound, long startDelay, long duration) {
+        explode(bitmap, bound, startDelay, duration, null);
+    }
 
     public void explode(final View view) {
         explode(view, false);
     }
-    
     public void explode(final View view, boolean invisible) {
+        explode(view, invisible, null);
+    }
+    public void explode(final View view, boolean invisible, final AnimatorListenerAdapter mAnimatorListenerAdapter) {
         Rect r = new Rect();
         view.getGlobalVisibleRect(r);
         int[] location = new int[2];
@@ -113,7 +168,7 @@ public class ExplosionField extends View {
         if (!invisible) {
             view.animate().setDuration(150).setStartDelay(startDelay).scaleX(0f).scaleY(0f).alpha(0f).start();
         }
-        explode(Utils.createBitmapFromView(view), r, startDelay, ExplosionAnimator.DEFAULT_DURATION);
+        explode(Utils.createBitmapFromView(view), r, startDelay, ExplosionAnimator.DEFAULT_DURATION, mAnimatorListenerAdapter);
     }
 
     public void clear() {

@@ -15,6 +15,7 @@ import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -67,6 +68,7 @@ public class DynamicGridView extends GridView {
     private List<ObjectAnimator> mWobbleAnimators = new LinkedList<ObjectAnimator>();
     private boolean mHoverAnimation;
     private boolean mReorderAnimation;
+    private boolean mDeleteAnimation;
     private boolean mWobbleInEditMode = true;
     private boolean mIsEditModeEnabled = true;
 
@@ -332,9 +334,31 @@ public class DynamicGridView extends GridView {
 
 
     private void reorderElements(int originalPosition, int targetPosition) {
-        if (mDragListener != null)
+        if (mDragListener != null) {
             mDragListener.onDragPositionsChanged(originalPosition, targetPosition);
+        }
         getAdapterInterface().reorderItems(originalPosition, targetPosition);
+    }
+    
+    public void removeElement(final int targetPosition) {
+        View targetView = getChildAt(targetPosition - getFirstVisiblePosition());
+        if (targetView != null) {
+//            targetView.setVisibility(View.INVISIBLE);
+            getViewTreeObserver().addOnPreDrawListener(new OnPreDrawListener() {
+                
+                @Override
+                public boolean onPreDraw() {
+                    getViewTreeObserver().removeOnPreDrawListener(this);
+                    animateReorderOrDelete(targetPosition, getLastVisiblePosition(), false);
+                    return true;
+                }
+            });
+            
+        }       
+    }
+    
+    private void onDelete(int target) {
+//        getAdapterInterface().removeItem(target);
     }
 
     private int getColumnCount() {
@@ -659,7 +683,7 @@ public class DynamicGridView extends GridView {
     }
 
     private void updateEnableState() {
-        setEnabled(!mHoverAnimation && !mReorderAnimation);
+        setEnabled(!mHoverAnimation && !mReorderAnimation && !mDeleteAnimation);
     }
 
     /**
@@ -825,7 +849,7 @@ public class DynamicGridView extends GridView {
                 mTotalOffsetY += mDeltaY;
                 mTotalOffsetX += mDeltaX;
 
-                animateReorder(mOriginalPosition, mTargetPosition);
+                animateReorderOrDelete(mOriginalPosition, mTargetPosition, true);
 
                 mPreviousMobileView.setVisibility(View.VISIBLE);
 
@@ -871,7 +895,7 @@ public class DynamicGridView extends GridView {
                 mTotalOffsetY += mDeltaY;
                 mTotalOffsetX += mDeltaX;
 
-                animateReorder(mOriginalPosition, mTargetPosition);
+                animateReorderOrDelete(mOriginalPosition, mTargetPosition, true);
 
                 assert mMobileView != null;
                 mMobileView.setVisibility(View.VISIBLE);
@@ -928,7 +952,7 @@ public class DynamicGridView extends GridView {
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    private void animateReorder(final int oldPosition, final int newPosition) {
+    private void animateReorderOrDelete(final int oldPosition, final int newPosition, final boolean isReoder) {
         boolean isForward = newPosition > oldPosition;
         List<Animator> resultList = new LinkedList<Animator>();
         if (isForward) {
@@ -960,14 +984,25 @@ public class DynamicGridView extends GridView {
         resultSet.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {
-                mReorderAnimation = true;
+                if (isReoder) {
+                    mReorderAnimation = true;
+                } else {
+                    mDeleteAnimation = true;
+                }                
                 updateEnableState();
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                mReorderAnimation = false;
+                if (isReoder) {
+                    mReorderAnimation = false;
+                } else {
+                    mDeleteAnimation = false;
+                }
                 updateEnableState();
+                if (!isReoder) {
+                    onDelete(oldPosition);
+                }
             }
         });
         resultSet.start();
