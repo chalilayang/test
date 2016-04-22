@@ -123,7 +123,7 @@ public class MaterialMenuDrawable extends Drawable implements Animatable {
 
     public static final int     DEFAULT_COLOR              = Color.WHITE;
     public static final int     DEFAULT_SCALE              = 1;
-    public static final int     DEFAULT_TRANSFORM_DURATION = 800;
+    public static final int     DEFAULT_TRANSFORM_DURATION = 500;
     public static final boolean DEFAULT_VISIBLE            = true;
 
     private static final int BASE_DRAWABLE_WIDTH  = 40;

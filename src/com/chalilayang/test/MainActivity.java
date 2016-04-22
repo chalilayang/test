@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -26,6 +27,8 @@ import android.widget.SimpleAdapter;
 
 import org.askerov.dynamicgrid.example.GridActivity;
 
+import com.balysv.materialmenu.MaterialMenuView;
+import com.balysv.materialmenu.MaterialMenuDrawable.IconState;
 import com.mobeta.android.demodslv.Launcher;
 
 public class MainActivity extends Activity implements OnItemClickListener {
@@ -36,11 +39,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
     public ListView mListView;
     private SimpleAdapter mListAdapter;
     public DisplayMetrics mDisplayMetrics;
+    private MaterialMenuView mMaterialMenuView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+        initMetrics();
     }
     
     private void initMetrics() {
@@ -49,6 +54,27 @@ public class MainActivity extends Activity implements OnItemClickListener {
     }
 
     private void init() {
+        if (mMaterialMenuView == null) {
+            mMaterialMenuView = (MaterialMenuView) findViewById(R.id.action_bar_menu);
+            mMaterialMenuView.setOnClickListener(new OnClickListener() {
+                
+                @Override
+                public void onClick(View v) {
+                    IconState state = mMaterialMenuView.getState();
+                    switch (state) {
+                        case ARROW:
+                            mMaterialMenuView.animateState(IconState.BURGER);
+                            break;
+                        case BURGER:
+                            mMaterialMenuView.animateState(IconState.ARROW);
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                }
+            });
+        }
         if (mListView == null) {
             mListView = (ListView) findViewById(R.id.activity_list_view);
             mListAdapter = new SimpleAdapter(getApplicationContext(), getData(), R.layout.list_item_layout,

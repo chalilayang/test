@@ -1012,6 +1012,7 @@ public class DynamicGridView extends GridView {
         AnimatorSet moveAnimationSet = new AnimatorSet();
         moveAnimationSet.playTogether(resultList);
         moveAnimationSet.setDuration(MOVE_DURATION);
+//        moveAnimationSet.setStartDelay(600);
         moveAnimationSet.setInterpolator(new AccelerateDecelerateInterpolator());
         moveAnimationSet.addListener(new AnimatorListenerAdapter() {
             @Override

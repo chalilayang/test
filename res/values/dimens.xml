@@ -1,4 +1,10 @@
 <resources>
+    
+    <dimen name="action_bar_container_height">60dp</dimen>
+    
+    <dimen name="main_activity_list_divider_height">10dp</dimen>
+    
+    
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
@@ -7,4 +13,8 @@
     <dimen name="dgv_overlap_if_switch_straight_line">16dp</dimen>
     
     <dimen name="mm_up_arrow_margin">-16dp</dimen>
+    
+    <dimen name="general_big_text_size">30sp</dimen>
+    <dimen name="general_middle_text_size">16sp</dimen>
+    
 </resources>

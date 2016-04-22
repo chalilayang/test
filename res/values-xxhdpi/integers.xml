@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    
-    <integer name="user_avator_margin_top">10</integer>
-    <integer name="user_avator_size_when_user_is_junior">50</integer>
-    <integer name="user_avator_margin_top_when_user_is_junior">1</integer>
-    
-</resources>
