@@ -29,7 +29,6 @@ public class GridActivity extends Activity {
 
     private DynamicGridView gridView;
     private List<CheeseItem> mList;
-    private ExplosionField mExplosionField;
     
     private BaseDynamicGridAdapter mAdapter;
 
@@ -57,7 +56,7 @@ public class GridActivity extends Activity {
         gridView = (DynamicGridView) findViewById(R.id.dynamic_grid);
         gridView.setLayoutAnimation(getAnimationController());
         gridView.setAdapter(mAdapter);
-        mExplosionField = ExplosionField.attach2Window(this);
+        
 //        add callback to stop edit mode if needed
         gridView.setOnDropListener(new DynamicGridView.OnDropListener()
         {
@@ -89,18 +88,8 @@ public class GridActivity extends Activity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(GridActivity.this, parent.getAdapter().getItem(position).toString(),
-//                        Toast.LENGTH_SHORT).show();
-                final int mPosition = position;
-                mExplosionField.explode(view, true);                
-                gridView.postDelayed(new Runnable() {
-                    
-                    @Override
-                    public void run() {
-                        // TODO Auto-generated method stub
-                        gridView.removeElement(mPosition);
-                    }
-                }, 300);
+                final int mPosition = position;        
+                gridView.animateDelete(mPosition);
             }
         });
     }
