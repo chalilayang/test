@@ -34,7 +34,7 @@
     <string name="fade_header">Fade header</string>
     <string name="draw_behind_header">Draw behind header</string>
     <string name="fast_scroll">Fast scroll</string>
-    <string name="title_activity_clip_path_test">ClipPathTestActivity</string>
+    <string name="title_activity_clip_path_test">CustomViewDemo</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_dynamic_gridview">DynamicGridView</string>
 

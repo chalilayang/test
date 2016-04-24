@@ -161,7 +161,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 intent = new Intent(this, StickyListTestActivity.class);
                 break;
             case 5:
-                intent = new Intent(this, ClipPathTestActivity.class);
+                intent = new Intent(this, CustomViewActivity.class);
                 break;
             case 6:
                 intent = new Intent(this, GridActivity.class);

@@ -44,7 +44,8 @@
         <activity android:name=".ExpandableListTestActivity" >
         </activity>
         <activity
-            android:name=".ClipPathTestActivity"
+            android:name=".CustomViewActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
             android:label="@string/title_activity_clip_path_test" >
         </activity>
         <activity

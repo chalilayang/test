@@ -50,4 +50,9 @@
         <attr name="mm_rtlEnabled" format="boolean"/>
     </declare-styleable>
 
+    <declare-styleable name="FAB">
+        <!-- Background color -->
+        <attr name="bg_color" format="color|reference"/>
+        <attr name="bg_color_pressed" format="color|reference"/>
+    </declare-styleable>
 </resources>
