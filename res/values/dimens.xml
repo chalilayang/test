@@ -21,9 +21,10 @@
     <dimen name="mm_up_arrow_margin">-16dp</dimen>
     
     <dimen name="general_big_text_size">30sp</dimen>
-    <dimen name="general_middle_text_size">16sp</dimen>
+    <dimen name="general_middle_text_size">24sp</dimen>
+    <dimen name="general_small_text_size">18sp</dimen>
     
     <dimen name="si_default_text_size">18sp</dimen>
     <dimen name="si_default_radius_max">24dp</dimen>
-    <dimen name="si_default_radius_min">8dp</dimen>
+    <dimen name="si_default_radius_min">2dp</dimen>
 </resources>

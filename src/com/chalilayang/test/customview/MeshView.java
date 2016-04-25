@@ -5,17 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PorterDuff;
-import android.graphics.Rect;
-import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import com.chalilayang.test.R;
 
@@ -87,7 +79,30 @@ public class MeshView extends View {
     }
 
     public boolean onTouchEvent(MotionEvent event) {
-        warp(event.getX(), event.getY());
-        return true;
+        switch (event.getAction() & MotionEvent.ACTION_MASK) {
+            case MotionEvent.ACTION_DOWN:
+                warp(event.getX(), event.getY());
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+
+                break;
+
+            case MotionEvent.ACTION_UP:
+
+                break;
+
+            case MotionEvent.ACTION_CANCEL:
+
+                break;
+
+            case MotionEvent.ACTION_POINTER_UP:
+
+                break;
+
+            default:
+                break;
+        }
+        return super.onTouchEvent(event);
     }
 }

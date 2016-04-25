@@ -36,6 +36,11 @@
         <item name="android:textSize">14sp</item>
     </style>
     
+    <style name="AppCompatTitle">
+        <item name="android:textSize">@dimen/general_middle_text_size</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
     <declare-styleable name="MaterialMenuView">
         <attr name="mm_color" format="color"/>
         <attr name="mm_visible" format="boolean"/>

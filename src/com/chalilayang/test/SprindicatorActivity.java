@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.balysv.materialmenu.MaterialMenuDrawable;
 import com.chalilayang.test.customview.springindicator.SpringIndicator;
 import com.chalilayang.test.customview.springindicator.viewpager.ScrollerViewPager;
 
@@ -29,6 +30,7 @@ public class SprindicatorActivity extends ActionBarActivity {
         viewPager = (ScrollerViewPager) findViewById(R.id.view_pager);
         SpringIndicator springIndicator = (SpringIndicator) findViewById(R.id.indicator);
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setTitle(R.string.sprindicator_demo);
         setSupportActionBar(toolbar);
 
         PagerManager manager = new PagerManager();

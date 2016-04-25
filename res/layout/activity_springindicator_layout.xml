@@ -3,17 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".SprindicatorActivity">
 
-    <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/tool_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue"
-        android:elevation="10dp"
-        android:minHeight="?attr/actionBarSize"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:theme="@style/ThemeOverlay.AppCompat.Light" />
+    <include layout="@layout/tool_bar" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -31,7 +23,7 @@
             app:siIndicatorColors="@array/indicator_colors"
             app:siTextColor="@color/colorPrimaryDark"
             app:siSelectedTextColor="@android:color/white"
-            app:siIndicatorColor="@color/colorPrimary"
+            app:siIndicatorColor="@color/blue"
             android:id="@+id/indicator"
             android:layout_width="match_parent"
             android:layout_height="56dp"

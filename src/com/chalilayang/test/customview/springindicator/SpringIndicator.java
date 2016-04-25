@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -196,6 +197,7 @@ public class SpringIndicator extends FrameLayout {
 
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                Log.i("yangyong", "positionOffset " + positionOffset + "  positionOffsetPixels  " + positionOffsetPixels);
                 if (position < tabs.size() - 1) {
                     // radius
                     float radiusOffsetHead = 0.5f;
