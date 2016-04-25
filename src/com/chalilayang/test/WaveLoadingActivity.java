@@ -2,8 +2,6 @@ package com.chalilayang.test;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;

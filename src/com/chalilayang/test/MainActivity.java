@@ -135,6 +135,12 @@ public class MainActivity extends Activity implements OnItemClickListener {
         map.put(LIST_KEY_ICON, R.drawable.linkdin);
         map.put(LIST_KEY_NAME, getString(R.string.dslv_demo));
         list.add(map);
+        
+        map = new HashMap<String, Object>(1);
+        // map.put("img", R.drawable.e002);
+        map.put(LIST_KEY_ICON, R.drawable.twitter);
+        map.put(LIST_KEY_NAME, getString(R.string.sprindicator_demo));
+        list.add(map);
 
 
         return list;
@@ -168,6 +174,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 break;
             case 7:
                 intent = new Intent(this, Launcher.class);
+                break;
+            case 8:
+                intent = new Intent(this, SprindicatorActivity.class);
                 break;
             default:
                 break;

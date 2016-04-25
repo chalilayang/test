@@ -17,11 +17,13 @@
         app:mm_color="@android:color/white" />
 
     <TextView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="12dp"
         android:ellipsize="end"
+        android:elevation="20dp"
         android:singleLine="true"
         android:text="@string/app_name"
         android:textColor="@android:color/white"

@@ -8,13 +8,22 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Region;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 
-public class CustomViewActivity extends Activity {
+import com.chalilayang.test.customview.BitmapMeshView;
+import com.chalilayang.test.customview.MeshView;
+import com.chalilayang.test.customview.PlasmaView;
 
+public class CustomViewActivity extends Activity {
+    /* load our native library */
+    static {
+        System.loadLibrary("plasma");
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customview_layout);
+        Display display = getWindowManager().getDefaultDisplay();
+        setContentView(new MeshView(this));
     }
 }

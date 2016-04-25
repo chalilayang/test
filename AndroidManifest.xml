@@ -22,6 +22,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.chalilayang.test.SprindicatorActivity">
+        </activity>
+        <activity
+            android:name="com.chalilayang.test.AboutActivity">
+        </activity>
+        <activity
             android:name=".ExplosionActivity"
             android:label="@string/explosion" >
         </activity>

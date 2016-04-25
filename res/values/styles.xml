@@ -1,9 +1,4 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.DeviceDefault.Light">
-        <!-- Customize your theme here. -->
-    </style>
     
     <color name="dsb_progress_color">#ff009688</color>
     <color name="dsb_track_color">#ff939393</color>
@@ -55,4 +50,12 @@
         <attr name="bg_color" format="color|reference"/>
         <attr name="bg_color_pressed" format="color|reference"/>
     </declare-styleable>
+    
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- colorPrimary is used for the default action bar background -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- colorPrimaryDark is used for the status bar -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
 </resources>
