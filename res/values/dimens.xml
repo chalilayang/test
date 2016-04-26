@@ -6,7 +6,7 @@
     
     <!-- ClipPathTestActivity -->
     <dimen name="round_shape_radius">50sp</dimen>
-    <dimen name="fab_size">56dp</dimen>
+    <dimen name="fab_size">70dp</dimen>
     <dimen name="start_z">2dp</dimen>
     <dimen name="end_z">5dp</dimen>
     

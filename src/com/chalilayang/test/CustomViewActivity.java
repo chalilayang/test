@@ -24,6 +24,6 @@ public class CustomViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Display display = getWindowManager().getDefaultDisplay();
-        setContentView(new MeshView(this));
+        setContentView(R.layout.activity_customview_layout);
     }
 }

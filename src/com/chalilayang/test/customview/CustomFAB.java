@@ -97,7 +97,7 @@ public class CustomFAB extends ImageButton {
         ld.setLayerInset(0, 5, 5, 0, 0);
         ld.setLayerInset(1, 0, 0, 5, 5);
 
-        return ld;
+        return sd;
     }
 
 
@@ -106,7 +106,7 @@ public class CustomFAB extends ImageButton {
         TypedArray arr = theme.obtainStyledAttributes(attrSet, R.styleable.FAB, 0, 0);
         try {
             setBgColor(arr.getColor(R.styleable.FAB_bg_color, Color.BLUE));
-            setBgColorPressed(arr.getColor(R.styleable.FAB_bg_color_pressed, Color.GRAY));
+            setBgColorPressed(arr.getColor(R.styleable.FAB_bg_color_pressed, Color.BLUE));
             StateListDrawable sld = new StateListDrawable();
 
             sld.addState(new int[] {android.R.attr.state_pressed}, createButton(bgColorPressed));
