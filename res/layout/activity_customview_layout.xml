@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:custom="http://schemas.android.com/apk/res/com.chalilayang.test"
+    xmlns:custom="http://schemas.android.com/apk/res-atuo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.chalilayang.test.CustomViewActivity" >
@@ -22,7 +22,7 @@
         android:textSize="@dimen/general_big_text_size" >
     </TextView>
     
-    <com.chalilayang.test.customview.BezierView
+    <com.chalilayang.test.customview.WaveTestView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/textview_one"
